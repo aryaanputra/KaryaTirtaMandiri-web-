@@ -12,25 +12,25 @@ $keyword = $_GET['keyword'] ?? '';
 if($keyword != ''){
     $querycari = mysqli_query($koneksi,"
         SELECT *
-        FROM tb_pengemudi
-        WHERE id_pengemudi LIKE '%$keyword%'
-           OR nama_pengemudi LIKE '%$keyword%'
-           OR nomor_telepon LIKE '%$keyword%'
-        ORDER BY id_pengemudi ASC
+        FROM tb_barang
+        WHERE id_barang LIKE '%$keyword%'
+           OR nama_barang LIKE '%$keyword%'
+           OR kategori LIKE '%$keyword%'
+        ORDER BY id_barang ASC
     ");
 }else{
     $querycari = mysqli_query($koneksi,"
         SELECT *
-        FROM tb_pengemudi
-        ORDER BY id_pengemudi ASC
+        FROM tb_barang
+        ORDER BY id_barang ASC
     ");
 }
 
-$pengemudi = mysqli_query($koneksi, "SELECT COUNT(*) AS total_pengemudi FROM tb_pengemudi");
-$data_pengemudi = mysqli_fetch_assoc($pengemudi);
-$total_pengemudi = $data_pengemudi['total_pengemudi'];
+$barang = mysqli_query($koneksi, "SELECT COUNT(*) AS total_barang FROM tb_barang");
+$data_barang = mysqli_fetch_assoc($barang);
+$total_barang = $data_barang['total_barang'];
 
-$query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemudi ASC");
+$query = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang ASC");
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="adminHMD professional admin dashboard template">
-  <title>Pengemudi | Karya Tirta Mandiri</title>
+  <title>Barang | Karya Tirta Mandiri</title>
 
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -70,11 +70,11 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
           <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
           <span class="nav-text">Karyawan</span>
         </a>
-        <a class="nav-link active" href="pengemudi.php">
+        <a class="nav-link" href="pengemudi.php">
           <span class="nav-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
           <span class="nav-text">Pengemudi</span>
         </a>
-        <a class="nav-link" href="barang.php">
+        <a class="nav-link active" href="barang.php">
           <span class="nav-icon"><i class="bi bi-table" aria-hidden="true"></i></span>
           <span class="nav-text">Barang</span>
         </a>
@@ -111,10 +111,10 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
           </button>
 
           <form class="d-none d-md-flex ms-3 flex-grow-1" role="search" method="GET" action="">
-            <input class="form-control search-input" type="search" name="keyword" placeholder="Cari pengemudi" aria-label="Search" value="<?= $_GET['keyword'] ?? ''; ?>" >
+            <input class="form-control search-input" type="search" name="keyword" placeholder="Cari barang" aria-label="Search" value="<?= $_GET['keyword'] ?? ''; ?>">
           </form>
 
-          <div class="navbar-actions ms-auto">
+            <div class="navbar-actions ms-auto">
             <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
               <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
             </button>
@@ -137,41 +137,36 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
               <span class="page-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
               <div>
                 <p class="eyebrow mb-1">Data</p>
-                <h1 class="h3 mb-1">Pengemudi</h1>
-                <p class="text-muted mb-0">Mengelola data pengemudi.</p>
+                <h1 class="h3 mb-1">Barang</h1>
+                <p class="text-muted mb-0">Mengelola data barang.</p>
               </div>
             </div>
-            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a><a class="btn btn-primary btn-sm" href="tambah_pengemudi.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
+            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a><a class="btn btn-primary btn-sm" href="tambah_barang.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
           </div>
 
           <section class="row g-3 mt-1" aria-label="User summary">
             <div class="col-12 col-sm-6 col-xl-3">
               <article class="metric-card metric-primary">
                 <div class="metric-top">
-                  <span class="metric-label">Total pengemudi</span>
+                  <span class="metric-label">Total barang</span>
                   <span class="metric-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
                 </div>
-                <div class="metric-value"><?php echo $total_pengemudi; ?></div>
-                <!-- <div class="metric-meta">
-                  <span class="text-success">+5.1%</span>
-                  <span>this month</span>
-                </div> -->
+                <div class="metric-value"><?php echo $total_barang; ?></div>
               </article>
             </div>
-
           </section>
 
           <section class="panel mt-3">
             <div class="panel-header">
               <div>
-                <h2 class="h5 mb-1 section-title"><i class="bi bi-table" aria-hidden="true"></i><span>Data pengemudi</span></h2>
-                <p class="text-muted mb-0">Mencari, meninjau, dan mengelola data pengemudi.</p>
+                <h2 class="h5 mb-1 section-title"><i class="bi bi-table" aria-hidden="true"></i><span>Data barang</span></h2>
+                <p class="text-muted mb-0">Mencari, meninjau, dan mengelola data barang.</p>
               </div>
               <div class="d-flex flex-wrap gap-2">
                 <form method="GET" action="">
-                    <input class="form-control search-input" type="search" name="keyword" placeholder="Cari pengemudi" value="<?= $_GET['keyword'] ?? ''; ?>">
+                    <input class="form-control search-input" type="search" name="keyword" placeholder="Cari barang" value="<?= $_GET['keyword'] ?? ''; ?>">
                 </form>
-                <a class="btn btn-primary btn-sm" href="tambah_pengemudi.php"><i class="bi bi-person-plus" aria-hidden="true"></i> Tambah Data</a>
+                <a class="btn btn-primary btn-sm" href="tambah_barang.php"><i class="bi bi-person-plus" aria-hidden="true"></i> Tambah Data</a>
               </div>
             </div>
             <div class="table-responsive">
@@ -180,23 +175,21 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nama</th>
-                    <th scope="col">Nomor Telepon</th>
-                    <th scope="col">Status Bekerja</th>
-                    <th scope="col">Tanggal Bergabung</th>
+                    <th scope="col">Harga Beli</th>
+                    <th scope="col">Harga Jual</th>
                     <th scope="col" class="text-end">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                 <?php while($row = mysqli_fetch_assoc($querycari)) { ?>
                     <tr>
-                        <td><?= $row['id_pengemudi']; ?></td>
-                        <td><?= $row['nama_pengemudi']; ?></td>
-                        <td><?= $row['nomor_telepon']; ?></td>
-                        <td><?= $row['status_kerja']; ?></td>
-                        <td><?= $row['tanggal_bergabung']; ?></td>
+                        <td><?= $row['id_barang']; ?></td>
+                        <td><?= $row['nama_barang']; ?></td>
+                        <td><?= $row['harga_beli']; ?></td>
+                        <td><?= $row['harga_jual']; ?></td>
                         <td class="text-end">
-                            <a class="btn btn-light btn-sm" href="detail_pengemudi.php?id_pengemudi=<?= $row['id_pengemudi']; ?>">View </a>
-                            <a class="btn btn-danger btn-sm" href="proses_hapus_data_pengemudi.php?id_pengemudi=<?= $row['id_pengemudi']; ?>" onclick="return confirm('Yakin ingin menghapus data pengguna ini?')">Delete </a>
+                            <a class="btn btn-light btn-sm" href="detail_barang.php?id_barang=<?= $row['id_barang']; ?>">View </a>
+                            <a class="btn btn-danger btn-sm" href="proses_hapus_data_barang.php?id_barang=<?= $row['id_barang']; ?>" onclick="return confirm('Yakin ingin menghapus data pengguna ini?')">Delete </a>
                         </td>
                     </tr>
                 <?php } ?>

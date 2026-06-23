@@ -33,8 +33,8 @@ $query = mysqli_query($koneksi,"
     VALUES
     (
         '$id_pengemudi', '$nama_pengemudi', '$tempat_lahir', '$tanggal_lahir','$jenis_kelamin', 
-        '$alamat_pengemudi', '$nomor_telepon', '$status_kerja', '$status_aktif', '$nomor_sim', '$masa_berlaku', '$tanggal_bergabung', 
-        '$nomor_rekening', '$bank', '$nama_kontak_darurat', '$nomor_kontak_darurat', '$hubungan'
+        '$alamat_pengemudi', '$nomor_telepon', '$status_kerja', '$status_aktif', '$nomor_sim', '$masa_berlaku', 
+        '$tanggal_bergabung', '$nomor_rekening', '$bank', '$nama_kontak_darurat', '$nomor_kontak_darurat', '$hubungan'
     )
 ");
 

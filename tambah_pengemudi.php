@@ -8,16 +8,19 @@ if(!isset($_SESSION['id_user'])){
 }
 
 function generate_id_pengemudi($koneksi){
-  $prefix = "KRY";
-  $q = mysqli_query($koneksi, "
-    SELECT MAX(CAST(SUBSTRING(id_pengemudi, 4, 3) AS UNSIGNED)) AS max_no
-    FROM tb_pengemudi
-    WHERE id_pengemudi LIKE 'KRY___'
-  ");
-  $row = mysqli_fetch_assoc($q);
-  $max = (int)($row['max_no'] ?? 0);
-  $next = $max + 1;
-  return $prefix . str_pad((string)$next, 3, "0", STR_PAD_LEFT); // KRY001 dst
+    $prefix = "DRI";
+
+    $q = mysqli_query($koneksi, "
+        SELECT MAX(CAST(SUBSTRING(id_pengemudi, 4) AS UNSIGNED)) AS max_no
+        FROM tb_pengemudi
+        WHERE id_pengemudi LIKE 'DRI%'
+    ");
+
+    $row = mysqli_fetch_assoc($q);
+    $max = (int)($row['max_no'] ?? 0);
+    $next = $max + 1;
+
+    return $prefix . str_pad($next, 2, "0", STR_PAD_LEFT);
 }
 
 $id_pengemudi = generate_id_pengemudi($koneksi);
