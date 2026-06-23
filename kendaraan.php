@@ -66,7 +66,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_kendaraan ORDER BY id_kendaraa
           <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
           <span class="nav-text">Dashboard</span>
         </a>
-        <a class="nav-link active" href="karyawan.php">
+        <a class="nav-link" href="karyawan.php">
           <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
           <span class="nav-text">Karyawan</span>
         </a>
@@ -78,7 +78,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_kendaraan ORDER BY id_kendaraa
           <span class="nav-icon"><i class="bi bi-table" aria-hidden="true"></i></span>
           <span class="nav-text">Barang</span>
         </a>
-        <a class="nav-link" href="kendaraan.php">
+        <a class="nav-link active" href="kendaraan.php">
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
           <span class="nav-text">Kendaraan</span>
         </a>
@@ -111,7 +111,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_kendaraan ORDER BY id_kendaraa
           </button>
 
           <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
-            <input class="form-control search-input" type="search" placeholder="Cari karyawan" aria-label="Search">
+            <input class="form-control search-input" type="search" placeholder="Cari kendaraan" aria-label="Search">
           </form>
 
           <div class="navbar-actions ms-auto">
@@ -167,7 +167,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_kendaraan ORDER BY id_kendaraa
                 <p class="text-muted mb-0">Mengelola data kendaraan.</p>
               </div>
             </div>
-            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a><a class="btn btn-primary btn-sm" href="tambah_karyawan.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
+            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a><a class="btn btn-primary btn-sm" href="tambah_kendaraan.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
           </div>
 
           <section class="row g-3 mt-1" aria-label="User summary">
@@ -195,9 +195,9 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_kendaraan ORDER BY id_kendaraa
               </div>
               <div class="d-flex flex-wrap gap-2">
                 <form method="GET" action="">
-                    <input class="form-control search-input" type="search" name="keyword" placeholder="Cari karyawan" value="<?= $_GET['keyword'] ?? ''; ?>">
+                    <input class="form-control search-input" type="search" name="keyword" placeholder="Cari kendaraan" value="<?= $_GET['keyword'] ?? ''; ?>">
                 </form>
-                <a class="btn btn-primary btn-sm" href="tambah_karyawan.php"><i class="bi bi-person-plus" aria-hidden="true"></i> Tambah Data</a>
+                <a class="btn btn-primary btn-sm" href="tambah_kendaraan.php"><i class="bi bi-person-plus" aria-hidden="true"></i> Tambah Data</a>
               </div>
             </div>
             <div class="table-responsive">
