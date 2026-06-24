@@ -168,7 +168,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
                 <p class="text-muted mb-0">Mengelola data pemesanan.</p>
               </div>
             </div>
-            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a><a class="btn btn-primary btn-sm" href="tambah_pemesanan.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
+            <!-- <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a><a class="btn btn-primary btn-sm" href="tambah_pemesanan.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div> -->
           </div>
 
           <section class="row g-3 mt-1" aria-label="User summary">
@@ -220,8 +220,8 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
                         <td><?= $row['nama_pelanggan']; ?></td>
                         <td><?= $row['tanggal']; ?></td>
                         <td class="text-end">
-                            <a class="btn btn-light btn-sm" href="detail_pemesanan.php?id_detail=<?= $row['id_detail']; ?>">View </a>
-                            <a class="btn btn-danger btn-sm" href="proses_hapus_data_pemesanan.php?id_detail=<?= $row['id_detail']; ?>" onclick="return confirm('Yakin ingin menghapus data pengguna ini?')">Delete </a>
+                            <a class="btn btn-light btn-sm" href="detail_pemesanan.php?no_faktur=<?= $row['no_faktur']; ?>">View </a>
+                            <!-- <a class="btn btn-danger btn-sm" href="proses_hapus_data_pemesanan.php?no_faktur=<?= $row['no_faktur']; ?>" onclick="return confirm('Yakin ingin menghapus data pengguna ini?')">Delete </a> -->
                             <a href="cetak_pemesanan.php?no_faktur=<?= $row['no_faktur']; ?>"target="_blank" class="btn btn-primary btn-sm">Cetak</a>
                         </td>
                     </tr>

@@ -126,7 +126,14 @@ $user = mysqli_fetch_assoc($query);
                 <h1 class="h3 mb-1">Detail pemesanan</h1>
               </div>
             </div>
-            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="pemesanan.php"><i class="bi bi-arrow-left" aria-hidden="true"></i>Kembali</a><a class="btn btn-primary btn-sm" href="tambah_pemesanan.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
+            <div class="heading-actions">
+              <a class="btn btn-outline-secondary btn-sm" href="pemesanan.php">
+                <i class="bi bi-arrow-left" aria-hidden="true"></i>Kembali
+              </a>
+              <!-- <a class="btn btn-primary btn-sm" href="tambah_pemesanan.php">
+                <i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data
+              </a> -->
+            </div>
           </div>
 
           <section class="row g-3">
@@ -135,10 +142,10 @@ $user = mysqli_fetch_assoc($query);
                     <div>
                         <h2 class="h5 mb-1 section-title">Detail Pemesanan</h2>
                     </div>
-                    <button class="btn btn-primary btn-sm" type="button"
+                    <!-- <button class="btn btn-primary btn-sm" type="button"
                         onclick="window.location.href='edit_pemesanan.php?no_faktur=<?= $user['no_faktur']; ?>'">
                         Edit Pemesanan
-                    </button>
+                    </button> -->
                 </div>
                 <div class="row g-3">
                     <div class="info-list mt-3 text-start">
