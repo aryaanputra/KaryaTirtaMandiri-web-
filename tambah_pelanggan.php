@@ -45,7 +45,7 @@ $id_pelanggan = generate_id_pelanggan($koneksi);
           <span class="brand-icon"><i class="bi bi-grid-1x2-fill" aria-hidden="true"></i></span>
           <span class="brand-copy">
             <span class="brand-title">Karya Tirta Mandiri</span>
-            <span class="brand-subtitle">Sistem Manjemen Logistik</span>
+            <span class="brand-subtitle">Sistem Manajemen Logistik</span>
           </span>
         </a>
       </div>
@@ -55,7 +55,7 @@ $id_pelanggan = generate_id_pelanggan($koneksi);
           <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
           <span class="nav-text">Dashboard</span>
         </a>
-        <a class="nav-link active" href="karyawan.php">
+        <a class="nav-link" href="karyawan.php">
           <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
           <span class="nav-text">Karyawan</span>
         </a>
@@ -71,7 +71,7 @@ $id_pelanggan = generate_id_pelanggan($koneksi);
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
           <span class="nav-text">Kendaraan</span>
         </a>
-        <a class="nav-link" href="pelanggan.php">
+        <a class="nav-link active" href="pelanggan.php">
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
           <span class="nav-text">Pelanggan</span>
         </a>

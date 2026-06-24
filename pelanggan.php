@@ -66,7 +66,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY id_pelangga
           <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
           <span class="nav-text">Dashboard</span>
         </a>
-        <a class="nav-link active" href="karyawan.php">
+        <a class="nav-link" href="karyawan.php">
           <span class="nav-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
           <span class="nav-text">Karyawan</span>
         </a>
@@ -82,7 +82,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY id_pelangga
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
           <span class="nav-text">Kendaraan</span>
         </a>
-        <a class="nav-link" href="pelanggan.php">
+        <a class="nav-link active" href="pelanggan.php">
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
           <span class="nav-text">Pelanggan</span>
         </a>
@@ -195,7 +195,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY id_pelangga
               </div>
               <div class="d-flex flex-wrap gap-2">
                 <form method="GET" action="">
-                    <input class="form-control search-input" type="search" name="keyword" placeholder="Cari kendaraan" value="<?= $_GET['keyword'] ?? ''; ?>">
+                    <input class="form-control search-input" type="search" name="keyword" placeholder="Cari pelanggan" value="<?= $_GET['keyword'] ?? ''; ?>">
                 </form>
                 <a class="btn btn-primary btn-sm" href="tambah_pelanggan.php"><i class="bi bi-person-plus" aria-hidden="true"></i> Tambah Data</a>
               </div>

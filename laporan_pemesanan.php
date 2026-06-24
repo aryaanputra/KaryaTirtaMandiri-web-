@@ -31,6 +31,14 @@ $pemesanan = mysqli_query($koneksi, "SELECT COUNT(*) AS total_pemesanan FROM tb_
 $data_pemesanan = mysqli_fetch_assoc($pemesanan);
 $total_pemesanan = $data_pemesanan['total_pemesanan'];
 
+$total_pemasukan = mysqli_query($koneksi,"SELECT SUM(total) AS grand_total FROM tb_pemesanan");
+$data_pemasukan = mysqli_fetch_assoc($total_pemasukan);
+
+$query_pengeluaran = mysqli_query($koneksi, "SELECT SUM(d.jumlah * b.harga_beli) AS total_pengeluaran FROM tb_detail_pemesanan d JOIN tb_barang b ON d.id_barang = b.id_barang");
+$data_pengeluaran = mysqli_fetch_assoc($query_pengeluaran);
+
+$total_pendapatan = $data_pemasukan['grand_total'] - $data_pengeluaran['total_pengeluaran'];
+
 $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur ASC");
 ?>
 
@@ -39,8 +47,8 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="adminHMD professional admin dashboard template">
-  <title>Pemesanan | Karya Tirta Mandiri</title>
+  <meta name="description" content="SMU 10">
+  <title>Laporan Pemesanan | Karya Tirta Mandiri</title>
 
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -63,7 +71,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
       </div>
 
       <nav class="sidebar-nav">
-        <a class="nav-link" href="index.php" aria-current="page">
+        <a class="nav-link active" href="index.php" aria-current="page">
           <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
           <span class="nav-text">Dashboard</span>
         </a>
@@ -87,11 +95,11 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
           <span class="nav-text">Pelanggan</span>
         </a>
-        <a class="nav-link active" href="pemesanan.php">
+        <a class="nav-link" href="pemesanan.php">
           <span class="nav-icon"><i class="bi bi-ui-checks-grid" aria-hidden="true"></i></span>
           <span class="nav-text">Pemesanan</span>
         </a>
-        <a class="nav-link" href="laporan_pemesanan.php">
+        <a class="nav-link active" href="laporan_pemesanan.php">
           <span class="nav-icon"><i class="bi bi-ui-checks-grid" aria-hidden="true"></i></span>
           <span class="nav-text">Laporan Pemesanan</span>
         </a>
@@ -111,44 +119,15 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
             <span></span>
           </button>
 
-          <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
-            <input class="form-control search-input" type="search" placeholder="Cari pemesanan" aria-label="Search">
-          </form>
-
           <div class="navbar-actions ms-auto">
             <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
               <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
             </button>
             <div class="dropdown">
-              <button class="icon-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
-                <span class="notification-dot"></span>
-                <i class="bi bi-bell" aria-hidden="true"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-end notification-menu">
-                <div class="dropdown-header fw-bold text-body">Notifications</div>
-                <a class="dropdown-item" href="users.html">
-                  <span class="notification-title">New user registered</span>
-                  <span class="notification-time">4 minutes ago</span>
-                </a>
-                <a class="dropdown-item" href="charts.html">
-                  <span class="notification-title">Revenue target reached</span>
-                  <span class="notification-time">32 minutes ago</span>
-                </a>
-                <a class="dropdown-item" href="settings.html">
-                  <span class="notification-title">Security review completed</span>
-                  <span class="notification-time">1 hour ago</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="dropdown">
               <button class="profile-button dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                  <img class="avatar-img avatar-sm" src="assets/images/avatar/avatar.jpg" alt="<?= $_SESSION['nama_user']; ?>">
                   <span class="profile-name d-none d-sm-inline"> <?= $_SESSION['nama_user']; ?> </span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                <li><a class="dropdown-item" href="settings.html">Account settings</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="proses_logout.php">Logout</a></li>
               </ul>
@@ -161,44 +140,62 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
         <div class="container-fluid px-3 px-lg-4 py-4">
           <div class="page-heading">
             <div class="page-heading-copy">
-              <span class="page-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+              <span class="page-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
               <div>
-                <p class="eyebrow mb-1">Data</p>
-                <h1 class="h3 mb-1">Pemesanan</h1>
-                <p class="text-muted mb-0">Mengelola data pemesanan.</p>
+                <h1 class="h3 mb-1">Laporan Pemesanan</h1>
+                <p class="text-muted mb-0">Monitor performance, sales, users, and support from one clean workspace.</p>
               </div>
             </div>
-            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a><a class="btn btn-primary btn-sm" href="tambah_pemesanan.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
+            <div class="heading-actions">
+              <a href="cetak_laporan_pemesanan.php" target="_blank" class="btn btn-primary">
+                <i class="bi bi-file-earmark-plus" aria-hidden="true"></i>
+                Cetak Laporan
+              </a>
+            </div>
           </div>
 
-          <section class="row g-3 mt-1" aria-label="User summary">
+          <section class="row g-3 mt-1" aria-label="Dashboard metrics">
             <div class="col-12 col-sm-6 col-xl-3">
-              <article class="metric-card metric-primary">
+              <article class="metric-card metric-danger">
                 <div class="metric-top">
-                  <span class="metric-label">Total pemesanan</span>
-                  <span class="metric-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+                  <span class="metric-label">Total Pemesanan</span>
+                  <span class="metric-icon"><i class="bi bi-life-preserver" aria-hidden="true"></i></span>
                 </div>
                 <div class="metric-value"><?php echo $total_pemesanan; ?></div>
-                <!-- <div class="metric-meta">
-                  <span class="text-success">+5.1%</span>
-                  <span>this month</span>
-                </div> -->
               </article>
             </div>
-
+            <div class="col-12 col-sm-6 col-xl-3">
+              <article class="metric-card metric-danger">
+                <div class="metric-top">
+                  <span class="metric-label">Total Pendapatan</span>
+                  <span class="metric-icon"><i class="bi bi-life-preserver" aria-hidden="true"></i></span>
+                </div>
+                <div class="metric-value">Rp <?= number_format($total_pendapatan, 0, ',', '.'); ?></div>
+              </article>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+              <article class="metric-card metric-danger">
+                <div class="metric-top">
+                  <span class="metric-label">Total Pemasukan</span>
+                  <span class="metric-icon"><i class="bi bi-life-preserver" aria-hidden="true"></i></span>
+                </div>
+                <div class="metric-value"><?php echo "Rp".number_format($data_pemasukan['grand_total'], 0, ',', '.'); ?></div>
+              </article>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+              <article class="metric-card metric-danger">
+                <div class="metric-top">
+                  <span class="metric-label">Total Pengeluaran</span>
+                  <span class="metric-icon"><i class="bi bi-life-preserver" aria-hidden="true"></i></span>
+                </div>
+                <div class="metric-value">Rp <?= number_format($data_pengeluaran['total_pengeluaran'], 0, ',', '.'); ?></div>
+              </article>
+            </div>
           </section>
-
           <section class="panel mt-3">
             <div class="panel-header">
               <div>
                 <h2 class="h5 mb-1 section-title"><i class="bi bi-table" aria-hidden="true"></i><span>Data pemesanan</span></h2>
-                <p class="text-muted mb-0">Mencari, meninjau, dan mengelola data pemesanan.</p>
-              </div>
-              <div class="d-flex flex-wrap gap-2">
-                <form method="GET" action="">
-                    <input class="form-control search-input" type="search" name="keyword" placeholder="Cari pemesanan" value="<?= $_GET['keyword'] ?? ''; ?>">
-                </form>
-                <a class="btn btn-primary btn-sm" href="tambah_pemesanan.php"><i class="bi bi-person-plus" aria-hidden="true"></i> Tambah Data</a>
               </div>
             </div>
             <div class="table-responsive">
@@ -220,9 +217,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
                         <td><?= $row['nama_pelanggan']; ?></td>
                         <td><?= $row['tanggal']; ?></td>
                         <td class="text-end">
-                            <a class="btn btn-light btn-sm" href="detail_pemesanan.php?id_detail=<?= $row['id_detail']; ?>">View </a>
-                            <a class="btn btn-danger btn-sm" href="proses_hapus_data_pemesanan.php?id_detail=<?= $row['id_detail']; ?>" onclick="return confirm('Yakin ingin menghapus data pengguna ini?')">Delete </a>
-                            <a href="cetak_pemesanan.php?no_faktur=<?= $row['no_faktur']; ?>"target="_blank" class="btn btn-primary btn-sm">Cetak</a>
+                            <a class="btn btn-light btn-sm" href="detail_pemesanan.php?no_faktur=<?= $row['no_faktur']; ?>">View </a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -234,6 +229,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
               <nav aria-label="Users pagination"><ul class="pagination pagination-sm mb-0"><li class="page-item disabled"><a class="page-link" href="#">Previous</a></li><li class="page-item active"><a class="page-link" href="#">1</a></li><li class="page-item"><a class="page-link" href="#">2</a></li><li class="page-item"><a class="page-link" href="#">Next</a></li></ul></nav>
             </div>
           </section>
+
         </div>
       </main>
 
