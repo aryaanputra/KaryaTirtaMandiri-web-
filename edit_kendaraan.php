@@ -155,7 +155,7 @@ $user = mysqli_fetch_assoc($query);
 
           <section class="row g-3">
             <div class="col-12 col-xl-8">
-              <form class="panel needs-validation" method="POST" action="proses_edit_data_kendaraab.php" novalidate>
+              <form class="panel needs-validation" method="POST" action="proses_edit_data_kendaraan.php" novalidate>
                 <input type="hidden" name="id_kendaraan" value="<?= $user['id_kendaraan']; ?>">
                     <div class="row g-3">
                     <div class="col-md-6">
@@ -164,11 +164,11 @@ $user = mysqli_fetch_assoc($query);
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Merk kendaraan</label>
-                        <input class="form-control" type="text" id="merk_kendaraan" name="merk_kendaraan" value="<?= $user['merk_kendaraan']; ?>" disabled>
+                        <input class="form-control" type="text" id="merk_kendaraan" name="merk_kendaraan" value="<?= $user['merk_kendaraan']; ?>" required>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Plat Nomor</label>
-                        <input class="form-control" type="text" id="platnomor" name="platnomor" value="<?= $user['platnomor']; ?>" disabled>
+                        <input class="form-control" type="text" id="platnomor" name="platnomor" value="<?= $user['platnomor']; ?>" required>
                     </div>
                 <div class="d-flex flex-wrap justify-content-end gap-2 mt-4">
                     <a class="btn btn-outline-secondary" href="kendaraan.php">Batal</a>
