@@ -110,10 +110,6 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
             <span></span>
           </button>
 
-          <form class="d-none d-md-flex ms-3 flex-grow-1" role="search" method="GET" action="">
-            <input class="form-control search-input" type="search" name="keyword" placeholder="Cari pengemudi" aria-label="Search" value="<?= $_GET['keyword'] ?? ''; ?>" >
-          </form>
-
           <div class="navbar-actions ms-auto">
             <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
               <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
@@ -123,6 +119,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
                   <span class="profile-name d-none d-sm-inline"> <?= $_SESSION['nama_user']; ?> </span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="proses_logout.php">Logout</a></li>
               </ul>
             </div>
@@ -152,10 +149,10 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
                   <span class="metric-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
                 </div>
                 <div class="metric-value"><?php echo $total_pengemudi; ?></div>
-                <!-- <div class="metric-meta">
-                  <span class="text-success">+5.1%</span>
-                  <span>this month</span>
-                </div> -->
+                <div class="metric-meta">
+                  <!-- <span class="text-success">+5.1%</span> -->
+                  <span>Pengemudi yang terdaftar</span>
+                </div>
               </article>
             </div>
 
@@ -165,7 +162,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
             <div class="panel-header">
               <div>
                 <h2 class="h5 mb-1 section-title"><i class="bi bi-table" aria-hidden="true"></i><span>Data pengemudi</span></h2>
-                <p class="text-muted mb-0">Mencari, meninjau, dan mengelola data pengemudi.</p>
+                <!-- <p class="text-muted mb-0">Mencari, meninjau, dan mengelola data pengemudi.</p> -->
               </div>
               <div class="d-flex flex-wrap gap-2">
                 <form method="GET" action="">

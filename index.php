@@ -152,8 +152,8 @@ $total_pemesanan = $data_pemesanan['total_pemesanan'];
                 </div>
                 <div class="metric-value"><?php echo $total_karyawan; ?></div>
                 <div class="metric-meta">
-                  <span class="text-success">+12.5%</span>
-                  <span>from last month</span>
+                  <!-- <span class="text-success">+12.5%</span> -->
+                  <span>Karyawan yang terdaftar</span>
                 </div>
               </article>
             </div>
@@ -166,8 +166,8 @@ $total_pemesanan = $data_pemesanan['total_pemesanan'];
                 </div>
                 <div class="metric-value"><?php echo $total_pengemudi; ?></div>
                 <div class="metric-meta">
-                  <span class="text-success">+8.2%</span>
-                  <span>new orders</span>
+                  <!-- <span class="text-success">+8.2%</span> -->
+                  <span>Pengemudi yang terdaftar</span>
                 </div>
               </article>
             </div>
@@ -180,8 +180,8 @@ $total_pemesanan = $data_pemesanan['total_pemesanan'];
                 </div>
                 <div class="metric-value"><?php echo $total_barang; ?></div>
                 <div class="metric-meta">
-                  <span class="text-success">+5.1%</span>
-                  <span>active users</span>
+                  <!-- <span class="text-success">+5.1%</span> -->
+                  <span>Barang yang terdaftar</span>
                 </div>
               </article>
             </div>
@@ -194,8 +194,8 @@ $total_pemesanan = $data_pemesanan['total_pemesanan'];
                 </div>
                 <div class="metric-value"><?php echo $total_kendaraan; ?></div>
                 <div class="metric-meta">
-                  <span class="text-danger">3 urgent</span>
-                  <span>need review</span>
+                  <!-- <span class="text-danger">3 urgent</span> -->
+                  <span>Kendaraan yang terdaftar</span>
                 </div>
               </article>
             </div>
@@ -208,8 +208,8 @@ $total_pemesanan = $data_pemesanan['total_pemesanan'];
                 </div>
                 <div class="metric-value"><?php echo $total_pelanggan; ?></div>
                 <div class="metric-meta">
-                  <span class="text-danger">3 urgent</span>
-                  <span>need review</span>
+                  <!-- <span class="text-danger">3 urgent</span> -->
+                  <span>Pelanggan yang terdaftar</span>
                 </div>
               </article>
             </div>
@@ -221,8 +221,8 @@ $total_pemesanan = $data_pemesanan['total_pemesanan'];
                 </div>
                 <div class="metric-value"><?php echo $total_pemesanan; ?></div>
                 <div class="metric-meta">
-                  <span class="text-danger">3 urgent</span>
-                  <span>need review</span>
+                  <!-- <span class="text-danger">3 urgent</span> -->
+                  <span>Pemesanan yang terdaftar</span>
                 </div>
               </article>
             </div>

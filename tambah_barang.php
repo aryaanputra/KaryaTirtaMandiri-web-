@@ -102,11 +102,7 @@ $id_barang = generate_id_barang($koneksi);
             <span></span>
           </button>
 
-          <form class="d-none d-md-flex ms-3 flex-grow-1" role="search" method="GET" action="">
-            <input class="form-control search-input" type="search" name="keyword" placeholder="Cari barang" aria-label="Search" value="<?= $_GET['keyword'] ?? ''; ?>">
-          </form>
-
-            <div class="navbar-actions ms-auto">
+          <div class="navbar-actions ms-auto">
             <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
               <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
             </button>
@@ -115,6 +111,7 @@ $id_barang = generate_id_barang($koneksi);
                   <span class="profile-name d-none d-sm-inline"> <?= $_SESSION['nama_user']; ?> </span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="proses_logout.php">Logout</a></li>
               </ul>
             </div>
@@ -190,7 +187,7 @@ $id_barang = generate_id_barang($koneksi);
 
                 </form>
             </div>
-            <div class="col-12 col-xl-4">
+            <!-- <div class="col-12 col-xl-4">
               <div class="panel h-100">
                 <h2 class="h5 mb-3 section-title"><i class="bi bi-list-check" aria-hidden="true"></i><span>Access Checklist</span></h2>
                 <div class="activity-list">
@@ -199,18 +196,18 @@ $id_barang = generate_id_barang($koneksi);
                   <div class="activity-item"><span class="activity-dot bg-warning"></span><div><p class="mb-1 fw-semibold">Send invite</p><p class="text-muted small mb-0">Users receive activation by email.</p></div></div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </section>
         </div>
       </main>
 
-      <footer class="admin-footer">
+      <!-- <footer class="admin-footer">
         <div class="container-fluid px-3 px-lg-4">
           <span>Copyright 2026 adminHMD. <br> Developed by <a target="_blank" class="fw-bold text-success" href="https://github.com/HasanMahmudDev">Md. Hasan Mahmud</a> • Distributed by <a target="_blank" class="fw-bold text-success" href="https://themewagon.com">ThemeWagon</a> </span>
           <span>Professional dashboard template.</span>
           <span>Validated user creation form.</span>
         </div>
-      </footer>
+      </footer> -->
     </div>
   </div>
 

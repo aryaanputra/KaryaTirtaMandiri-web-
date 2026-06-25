@@ -99,44 +99,15 @@ $id_karyawan = generate_id_karyawan($koneksi);
             <span></span>
           </button>
 
-          <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
-            <input class="form-control search-input" type="search" placeholder="Cari karyawan" aria-label="Search">
-          </form>
-
           <div class="navbar-actions ms-auto">
             <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
               <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
             </button>
             <div class="dropdown">
-              <button class="icon-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
-                <span class="notification-dot"></span>
-                <i class="bi bi-bell" aria-hidden="true"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-end notification-menu">
-                <div class="dropdown-header fw-bold text-body">Notifications</div>
-                <a class="dropdown-item" href="users.html">
-                  <span class="notification-title">New user registered</span>
-                  <span class="notification-time">4 minutes ago</span>
-                </a>
-                <a class="dropdown-item" href="charts.html">
-                  <span class="notification-title">Revenue target reached</span>
-                  <span class="notification-time">32 minutes ago</span>
-                </a>
-                <a class="dropdown-item" href="settings.html">
-                  <span class="notification-title">Security review completed</span>
-                  <span class="notification-time">1 hour ago</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="dropdown">
               <button class="profile-button dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                  <img class="avatar-img avatar-sm" src="assets/images/avatar/avatar.jpg" alt="<?= $_SESSION['nama_user']; ?>">
                   <span class="profile-name d-none d-sm-inline"> <?= $_SESSION['nama_user']; ?> </span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                <li><a class="dropdown-item" href="settings.html">Account settings</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="proses_logout.php">Logout</a></li>
               </ul>
@@ -254,7 +225,7 @@ $id_karyawan = generate_id_karyawan($koneksi);
 
                 </form>
             </div>
-            <div class="col-12 col-xl-4">
+            <!-- <div class="col-12 col-xl-4">
               <div class="panel h-100">
                 <h2 class="h5 mb-3 section-title"><i class="bi bi-list-check" aria-hidden="true"></i><span>Access Checklist</span></h2>
                 <div class="activity-list">
@@ -263,18 +234,18 @@ $id_karyawan = generate_id_karyawan($koneksi);
                   <div class="activity-item"><span class="activity-dot bg-warning"></span><div><p class="mb-1 fw-semibold">Send invite</p><p class="text-muted small mb-0">Users receive activation by email.</p></div></div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </section>
         </div>
       </main>
 
-      <footer class="admin-footer">
+      <!-- <footer class="admin-footer">
         <div class="container-fluid px-3 px-lg-4">
           <span>Copyright 2026 adminHMD. <br> Developed by <a target="_blank" class="fw-bold text-success" href="https://github.com/HasanMahmudDev">Md. Hasan Mahmud</a> • Distributed by <a target="_blank" class="fw-bold text-success" href="https://themewagon.com">ThemeWagon</a> </span>
           <span>Professional dashboard template.</span>
           <span>Validated user creation form.</span>
         </div>
-      </footer>
+      </footer> -->
     </div>
   </div>
 

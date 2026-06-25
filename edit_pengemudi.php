@@ -224,7 +224,7 @@ $user = mysqli_fetch_assoc($query);
 
                 </form>
             </div>
-            <div class="col-12 col-xl-4">
+            <!-- <div class="col-12 col-xl-4">
               <div class="panel h-100">
                 <h2 class="h5 mb-3 section-title"><i class="bi bi-list-check" aria-hidden="true"></i><span>Access Checklist</span></h2>
                 <div class="activity-list">
@@ -233,18 +233,18 @@ $user = mysqli_fetch_assoc($query);
                   <div class="activity-item"><span class="activity-dot bg-warning"></span><div><p class="mb-1 fw-semibold">Send invite</p><p class="text-muted small mb-0">pengemudi receive activation by email.</p></div></div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </section>
         </div>
       </main>
 
-      <footer class="admin-footer">
+      <!-- <footer class="admin-footer">
         <div class="container-fluid px-3 px-lg-4">
           <span>Copyright 2026 adminHMD. <br> Developed by <a target="_blank" class="fw-bold text-success" href="https://github.com/HasanMahmudDev">Md. Hasan Mahmud</a> • Distributed by <a target="_blank" class="fw-bold text-success" href="https://themewagon.com">ThemeWagon</a> </span>
           <span>Professional dashboard template.</span>
           <span>Validated user creation form.</span>
         </div>
-      </footer>
+      </footer> -->
     </div>
   </div>
 

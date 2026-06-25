@@ -110,11 +110,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang ASC"
             <span></span>
           </button>
 
-          <form class="d-none d-md-flex ms-3 flex-grow-1" role="search" method="GET" action="">
-            <input class="form-control search-input" type="search" name="keyword" placeholder="Cari barang" aria-label="Search" value="<?= $_GET['keyword'] ?? ''; ?>">
-          </form>
-
-            <div class="navbar-actions ms-auto">
+          <div class="navbar-actions ms-auto">
             <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
               <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
             </button>
@@ -123,6 +119,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang ASC"
                   <span class="profile-name d-none d-sm-inline"> <?= $_SESSION['nama_user']; ?> </span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="proses_logout.php">Logout</a></li>
               </ul>
             </div>
@@ -160,7 +157,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_barang ORDER BY id_barang ASC"
             <div class="panel-header">
               <div>
                 <h2 class="h5 mb-1 section-title"><i class="bi bi-table" aria-hidden="true"></i><span>Data barang</span></h2>
-                <p class="text-muted mb-0">Mencari, meninjau, dan mengelola data barang.</p>
+                <!-- <p class="text-muted mb-0">Mencari, meninjau, dan mengelola data barang.</p> -->
               </div>
               <div class="d-flex flex-wrap gap-2">
                 <form method="GET" action="">

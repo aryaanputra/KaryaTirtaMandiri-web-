@@ -71,7 +71,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
       </div>
 
       <nav class="sidebar-nav">
-        <a class="nav-link active" href="index.php" aria-current="page">
+        <a class="nav-link" href="index.php" aria-current="page">
           <span class="nav-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
           <span class="nav-text">Dashboard</span>
         </a>
@@ -143,7 +143,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pemesanan ORDER BY no_faktur A
               <span class="page-icon"><i class="bi bi-speedometer2" aria-hidden="true"></i></span>
               <div>
                 <h1 class="h3 mb-1">Laporan Pemesanan</h1>
-                <p class="text-muted mb-0">Monitor performance, sales, users, and support from one clean workspace.</p>
+                <!-- <p class="text-muted mb-0">Monitor performance, sales, users, and support from one clean workspace.</p> -->
               </div>
             </div>
             <div class="heading-actions">

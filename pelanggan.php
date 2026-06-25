@@ -110,44 +110,15 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY id_pelangga
             <span></span>
           </button>
 
-          <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
-            <input class="form-control search-input" type="search" placeholder="Cari Pelanggan" aria-label="Search">
-          </form>
-
           <div class="navbar-actions ms-auto">
             <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
               <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
             </button>
             <div class="dropdown">
-              <button class="icon-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
-                <span class="notification-dot"></span>
-                <i class="bi bi-bell" aria-hidden="true"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-end notification-menu">
-                <div class="dropdown-header fw-bold text-body">Notifications</div>
-                <a class="dropdown-item" href="users.html">
-                  <span class="notification-title">New user registered</span>
-                  <span class="notification-time">4 minutes ago</span>
-                </a>
-                <a class="dropdown-item" href="charts.html">
-                  <span class="notification-title">Revenue target reached</span>
-                  <span class="notification-time">32 minutes ago</span>
-                </a>
-                <a class="dropdown-item" href="settings.html">
-                  <span class="notification-title">Security review completed</span>
-                  <span class="notification-time">1 hour ago</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="dropdown">
               <button class="profile-button dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                  <img class="avatar-img avatar-sm" src="assets/images/avatar/avatar.jpg" alt="<?= $_SESSION['nama_user']; ?>">
                   <span class="profile-name d-none d-sm-inline"> <?= $_SESSION['nama_user']; ?> </span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                <li><a class="dropdown-item" href="settings.html">Account settings</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="proses_logout.php">Logout</a></li>
               </ul>
@@ -179,8 +150,8 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY id_pelangga
                 </div>
                 <div class="metric-value"><?php echo $total_pelanggan; ?></div>
                 <div class="metric-meta">
-                  <span class="text-success">+5.1%</span>
-                  <span>this month</span>
+                  <!-- <span class="text-success">+5.1%</span> -->
+                  <span>Pelanggan yang terdaftar</span>
                 </div>
               </article>
             </div>
@@ -191,7 +162,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY id_pelangga
             <div class="panel-header">
               <div>
                 <h2 class="h5 mb-1 section-title"><i class="bi bi-table" aria-hidden="true"></i><span>Data pelanggan</span></h2>
-                <p class="text-muted mb-0">Mencari, meninjau, dan mengelola data pelanggan.</p>
+                <!-- <p class="text-muted mb-0">Mencari, meninjau, dan mengelola data pelanggan.</p> -->
               </div>
               <div class="d-flex flex-wrap gap-2">
                 <form method="GET" action="">

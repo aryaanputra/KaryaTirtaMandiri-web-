@@ -41,7 +41,7 @@ $tanggal = date('d-m-Y');
           <span class="brand-icon"><i class="bi bi-grid-1x2-fill" aria-hidden="true"></i></span>
           <span class="brand-copy">
             <span class="brand-title">Karya Tirta Mandiri</span>
-            <span class="brand-subtitle">Sistem Manjemen Logistik</span>
+            <span class="brand-subtitle">Sistem Manajemen Logistik</span>
           </span>
         </a>
       </div>
@@ -63,9 +63,9 @@ $tanggal = date('d-m-Y');
           <span class="nav-icon"><i class="bi bi-table" aria-hidden="true"></i></span>
           <span class="nav-text">Barang</span>
         </a>
-        <a class="nav-link" href="pemesanan.php">
+        <a class="nav-link" href="kendaraan.php">
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
-          <span class="nav-text">pemesanan</span>
+          <span class="nav-text">Kendaraan</span>
         </a>
         <a class="nav-link" href="pelanggan.php">
           <span class="nav-icon"><i class="bi bi-person-badge" aria-hidden="true"></i></span>
@@ -95,44 +95,15 @@ $tanggal = date('d-m-Y');
             <span></span>
           </button>
 
-          <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
-            <input class="form-control search-input" type="search" placeholder="Cari karyawan" aria-label="Search">
-          </form>
-
           <div class="navbar-actions ms-auto">
             <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
               <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
             </button>
             <div class="dropdown">
-              <button class="icon-button" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
-                <span class="notification-dot"></span>
-                <i class="bi bi-bell" aria-hidden="true"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-end notification-menu">
-                <div class="dropdown-header fw-bold text-body">Notifications</div>
-                <a class="dropdown-item" href="users.html">
-                  <span class="notification-title">New user registered</span>
-                  <span class="notification-time">4 minutes ago</span>
-                </a>
-                <a class="dropdown-item" href="charts.html">
-                  <span class="notification-title">Revenue target reached</span>
-                  <span class="notification-time">32 minutes ago</span>
-                </a>
-                <a class="dropdown-item" href="settings.html">
-                  <span class="notification-title">Security review completed</span>
-                  <span class="notification-time">1 hour ago</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="dropdown">
               <button class="profile-button dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                  <img class="avatar-img avatar-sm" src="assets/images/avatar/avatar.jpg" alt="<?= $_SESSION['nama_user']; ?>">
                   <span class="profile-name d-none d-sm-inline"> <?= $_SESSION['nama_user']; ?> </span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                <li><a class="dropdown-item" href="settings.html">Account settings</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="proses_logout.php">Logout</a></li>
               </ul>
@@ -338,7 +309,7 @@ $tanggal = date('d-m-Y');
                 <br>
 
                 <button type="submit"
-                        class="btn btn-success">
+                        class="btn btn-primary">
                     Simpan Pemesanan
                 </button>
 

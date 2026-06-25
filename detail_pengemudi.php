@@ -95,20 +95,16 @@ $user = mysqli_fetch_assoc($query);
             <span></span>
           </button>
 
-          <form class="d-none d-md-flex ms-3 flex-grow-1" role="search">
-            <input class="form-control search-input" type="search" placeholder="Cari pengemudi" aria-label="Search">
-          </form>
-
           <div class="navbar-actions ms-auto">
             <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme" title="Switch color theme">
               <i class="bi bi-moon-stars" data-theme-icon aria-hidden="true"></i>
             </button>
-
             <div class="dropdown">
               <button class="profile-button dropdown-toggle" type="button" data-bs-toggle="dropdown">
                   <span class="profile-name d-none d-sm-inline"> <?= $_SESSION['nama_user']; ?> </span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end">
+                <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="proses_logout.php">Logout</a></li>
               </ul>
             </div>
@@ -126,7 +122,8 @@ $user = mysqli_fetch_assoc($query);
                 <h1 class="h3 mb-1">Detail pengemudi</h1>
               </div>
             </div>
-            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="pengemudi.php"><i class="bi bi-arrow-left" aria-hidden="true"></i>Kembali</a><a class="btn btn-primary btn-sm" href="tambah_pengemudi.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
+            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="pengemudi.php">
+              <i class="bi bi-arrow-left" aria-hidden="true"></i>Kembali</a></div>
           </div>
 
           <section class="row g-3">
