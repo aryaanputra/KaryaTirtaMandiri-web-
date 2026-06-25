@@ -138,8 +138,12 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_karyawan ORDER BY id_karyawan 
                 <p class="text-muted mb-0">Mengelola data karyawan.</p>
               </div>
             </div>
-            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a><a class="btn btn-primary btn-sm" href="tambah_karyawan.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
+            <div class="heading-actions">
+              <a class="btn btn-outline-secondary btn-sm" href="cetak_karyawan_semua.php"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a>
+              <!-- <a class="btn btn-primary btn-sm" href="tambah_karyawan.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a> -->
+            </div>
           </div>
+          
 
           <section class="row g-3 mt-1" aria-label="User summary">
             <div class="col-12 col-sm-6 col-xl-3">
@@ -150,11 +154,12 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_karyawan ORDER BY id_karyawan 
                 </div>
                 <div class="metric-value"><?php echo $total_karyawan; ?></div>
                 <div class="metric-meta">
-                  <span class="text-success">+5.1%</span>
-                  <span>this month</span>
+                  <!-- <span class="text-success">+5.1%</span> -->
+                  <span>Karyawan yang terdaftar</span>
                 </div>
               </article>
             </div>
+            
 
           </section>
 
@@ -175,7 +180,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_karyawan ORDER BY id_karyawan 
               <table class="table align-middle mb-0" id="usersTable" data-searchable-table>
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">ID Karyawan</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Nomor Telepon</th>
                     <th scope="col">Status Bekerja</th>
@@ -193,7 +198,8 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_karyawan ORDER BY id_karyawan 
                         <td><?= $row['tanggal_bergabung']; ?></td>
                         <td class="text-end">
                             <a class="btn btn-light btn-sm" href="detail_karyawan.php?id_karyawan=<?= $row['id_karyawan']; ?>">View </a>
-                            <a class="btn btn-danger btn-sm" href="proses_hapus_data_karyawan.php?id_karyawan=<?= $row['id_karyawan']; ?>" onclick="return confirm('Yakin ingin menghapus data pengguna ini?')">Delete </a>
+                            <!-- <a class="btn btn-danger btn-sm" href="proses_hapus_data_pemesanan.php?no_faktur=<?= $row['no_faktur']; ?>" onclick="return confirm('Yakin ingin menghapus data pengguna ini?')">Delete </a> -->
+                            <a href="cetak_karyawan_pribadi.php?id_karyawan=<?= $row['id_karyawan']; ?>"target="_blank" class="btn btn-primary btn-sm">Cetak</a>
                         </td>
                     </tr>
                 <?php } ?>

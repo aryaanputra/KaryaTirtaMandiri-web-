@@ -138,7 +138,10 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
                 <p class="text-muted mb-0">Mengelola data pengemudi.</p>
               </div>
             </div>
-            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a><a class="btn btn-primary btn-sm" href="tambah_pengemudi.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
+            <div class="heading-actions">
+              <a class="btn btn-outline-secondary btn-sm" href="cetak_pengemudi_semua.php"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a>
+              <!-- <a class="btn btn-primary btn-sm" href="tambah_pengemudi.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a> -->
+            </div>
           </div>
 
           <section class="row g-3 mt-1" aria-label="User summary">
@@ -175,7 +178,7 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
               <table class="table align-middle mb-0" id="usersTable" data-searchable-table>
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">ID Pengemudi</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Nomor Telepon</th>
                     <th scope="col">Status Bekerja</th>
@@ -193,7 +196,8 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pengemudi ORDER BY id_pengemud
                         <td><?= $row['tanggal_bergabung']; ?></td>
                         <td class="text-end">
                             <a class="btn btn-light btn-sm" href="detail_pengemudi.php?id_pengemudi=<?= $row['id_pengemudi']; ?>">View </a>
-                            <a class="btn btn-danger btn-sm" href="proses_hapus_data_pengemudi.php?id_pengemudi=<?= $row['id_pengemudi']; ?>" onclick="return confirm('Yakin ingin menghapus data pengguna ini?')">Delete </a>
+                            <!-- <a class="btn btn-danger btn-sm" href="proses_hapus_data_pemesanan.php?no_faktur=<?= $row['no_faktur']; ?>" onclick="return confirm('Yakin ingin menghapus data pengguna ini?')">Delete </a> -->
+                            <a href="cetak_pengemudi_pribadi.php?id_pengemudi=<?= $row['id_pengemudi']; ?>"target="_blank" class="btn btn-primary btn-sm">Cetak</a>
                         </td>
                     </tr>
                 <?php } ?>

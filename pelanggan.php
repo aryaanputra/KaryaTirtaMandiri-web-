@@ -138,7 +138,9 @@ $query = mysqli_query($koneksi, "SELECT * FROM tb_pelanggan ORDER BY id_pelangga
                 <p class="text-muted mb-0">Mengelola data pelanggan.</p>
               </div>
             </div>
-            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="tables.html"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a><a class="btn btn-primary btn-sm" href="tambah_pelanggan.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a></div>
+            <div class="heading-actions"><a class="btn btn-outline-secondary btn-sm" href="cetak_pelanggan_semua.php"><i class="bi bi-download" aria-hidden="true"></i> Cetak Data</a>
+            <!-- <a class="btn btn-primary btn-sm" href="tambah_pelanggan.php"><i class="bi bi-person-plus" aria-hidden="true"></i>Tambah Data</a> -->
+          </div>
           </div>
 
           <section class="row g-3 mt-1" aria-label="User summary">
